@@ -1,6 +1,3 @@
-shell_loop.c
-
-
 #include "shell.h"
 
 /**
@@ -161,4 +158,3 @@ void fork_cmd(info_t *info)
 		}
 	}
 }
-
