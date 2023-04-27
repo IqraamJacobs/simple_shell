@@ -44,7 +44,8 @@ int main(int ac, char **argv)
 			num_tokens = 0; /* Updates the num of tokens to 0 */
 			while (token != NULL)
 			{
-				num_tokens++; token = strtok(NULL, delim);
+				num_tokens++;
+				token = strtok(NULL, delim);
 			}
 			cmd_arr = parse_cmd(cmd_cp, num_tokens, prog_name);/* arr to be used for execve */
 			if (strcmp(cmd_arr[0], "exit") == 0) /* checks if input is exit */
@@ -114,6 +115,8 @@ void free_cmd_arr(char **cmd_arr)
 /**
  * execute_cmd - executes the cmd passed in by the user
  * @cmd: a pointer to an array of strings containing the cmd
+ * @prog_name: the programe passed into the function to be
+ * able to print the proper error message
  *
  * Return: Void functions have no return value
  */
