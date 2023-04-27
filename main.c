@@ -3,7 +3,7 @@
 /**
  * main - entry point of the program
  * @ac: argument count
- * @av: argument vectors
+ * @argv: argument vectors
  *
  * Return: 0 success
  * On error -1 is returned
@@ -16,10 +16,9 @@ int main(int ac, char **argv)
 	const char *delim = " \n";
 	int num_tokens, loop = 1;
 
-	(void)ac;
 	if (ac != 1)
 	{
-		printf("Usage: ./shell");    
+		printf("Usage: ./shell";)
 		return (-1);
 	}
 	if (argv[0] == NULL)
@@ -29,7 +28,7 @@ int main(int ac, char **argv)
 	prog_name = argv[0];
 	while (loop)
 	{
-		if (isatty (fileno(stdin)))
+		if (isatty(fileno(stdin)))
 			printf("#cisfun~$ "); /* shell promt */
 		nchar = getline(&user_inp, &inp_size, stdin); /* get user input from the input stream */
 		if (nchar == -1)
