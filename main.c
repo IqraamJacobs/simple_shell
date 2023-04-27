@@ -18,7 +18,7 @@ int main(int ac, char **argv)
 
 	if (ac != 1)
 	{
-		printf("Usage: ./shell";)
+		printf("Usage: ./shell");
 		return (-1);
 	}
 	if (argv[0] == NULL)
@@ -46,7 +46,7 @@ int main(int ac, char **argv)
 				num_tokens++;
 				token = strtok(NULL, delim);
 			}
-			cmd_arr = parse_cmd(cmd_cp, num_tokens, prog_name);/* arr to be used for execve */
+			cmd_arr = parse_cmd(cmd_cp, num_tokens, prog_name);/* get full arr */
 			if (strcmp(cmd_arr[0], "exit") == 0) /* checks if input is exit */
 			{
 				free_cmd_arr(cmd_arr); free(cmd_cp); free(user_inp); exit(98);
