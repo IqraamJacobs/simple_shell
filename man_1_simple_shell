@@ -1,6 +1,3 @@
-man_1_simple_shell
-
-
 .TH man 1 "16 Nov 2022" "0.1" "simple_shell man page"
 
 .SH NAME
@@ -43,4 +40,4 @@ Single space required after argument.
 
 
 .SH AUTHOR
-Iqraam Jacobs Jacobs, Ebenezer Emmanuel Emonueje.
+Iqraam Jacobs Jacobs, Ebenezer Emmanuel Emonueje
