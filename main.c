@@ -11,31 +11,22 @@
 int main(int ac, char **argv)
 {
 	char *user_inp, *cmd_cp, *token, *prog_name = NULL, **cmd_arr;
-	size_t inp_size = 0;
+	size_t inp_size = 0, num_tokens, loop = 1;
 	ssize_t nchar;
 	const char *delim = " \n";
-	int num_tokens, loop = 1;
 
-	if (ac != 1)
-	{
-		printf("Usage: ./shell");
-		return (-1);
-	}
-	if (argv[0] == NULL)
-	{
-		perror("empty input"); return (-1);
-	}
 	prog_name = argv[0];
 	while (loop)
 	{
 		if (isatty(fileno(stdin)))
 			printf("#cisfun~$ "); /* shell promt */
-		nchar = getline(&user_inp, &inp_size, stdin); /* get user input from the input stream */
+		nchar = getline(&user_inp, &inp_size, stdin);
 		if (nchar == -1)
 		{
-			free(user_inp); return (-1);
+			free(user_inp);
+			return (-1);
 		}
-		cmd_cp = malloc(sizeof(char) * nchar); /* alloc mem for manipulating the input */
+		cmd_cp = malloc(sizeof(char) * nchar);
 		_strcpy(cmd_cp, user_inp); /* copy the input into the new mem space */
 		token = strtok(user_inp, delim); /* tokenize to get number of input */
 		if (token != NULL)
@@ -47,10 +38,6 @@ int main(int ac, char **argv)
 				token = strtok(NULL, delim);
 			}
 			cmd_arr = parse_cmd(cmd_cp, num_tokens, prog_name);/* get full arr */
-			if (strcmp(cmd_arr[0], "exit") == 0) /* checks if input is exit */
-			{
-				free_cmd_arr(cmd_arr); free(cmd_cp); free(user_inp); exit(98);
-			}
 			execute_cmd(cmd_arr, prog_name); /* excute the command */
 			free_cmd_arr(cmd_arr); /* free cmd_arr allocated memory to prevent leaks */
 		}
