@@ -8,7 +8,7 @@
  * Return: 0 success
  * On error -1 is returned
  */
-int main(int ac, char **argv)
+int main(__attribute__((unused)) int ac, char **argv)
 {
 	char *user_inp, *cmd_cp, *token, *prog_name = NULL, **cmd_arr;
 	size_t inp_size = 0, num_tokens, loop = 1;
