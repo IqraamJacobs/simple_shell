@@ -20,9 +20,6 @@ char *_strcpy(char *dest, char *src);
 char *_getenv(const char *name);
 char *get_full_path(char *cmd);
 
-#endif#ifndef SHELL_H
-#define SHELL_H
-
 /* usefull header files for the shell */
 #include <stdio.h>
 #include <unistd.h>
