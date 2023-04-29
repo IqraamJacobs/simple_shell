@@ -13,7 +13,7 @@ int main(__attribute__((unused)) int ac, char **argv)
 	char *user_inp, *cmd_cp, *token, *prog_name = NULL, **cmd_arr;
 	size_t inp_size = 0, num_tokens, loop = 1;
 	ssize_t nchar;
-	const char *delim = " \n";
+	const char *delim = " \t\r\n\a";
 
 	prog_name = argv[0];
 	while (loop)
@@ -57,7 +57,7 @@ int main(__attribute__((unused)) int ac, char **argv)
 char **parse_cmd(char *user_cmd, int num_tokens, char *prog_name)
 {
 	char **argv, *token;
-	const char *delim = " \n";
+	const char *delim = " \n\t\r\a";
 	int i = 0;
 
 	argv = malloc(sizeof(char *) * num_tokens + 1);
